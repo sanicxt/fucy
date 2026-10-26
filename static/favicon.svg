@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Fucy Studio">
+	<rect width="64" height="64" rx="15" fill="#0a0a09"/>
+	<rect x="0.5" y="0.5" width="63" height="63" rx="14.5" fill="none" stroke="#2a2824"/>
+	<g fill="#26241f">
+		<rect x="8" y="8" width="8" height="8" rx="2"/>
+		<rect x="18" y="8" width="8" height="8" rx="2"/>
+		<rect x="28" y="8" width="8" height="8" rx="2"/>
+		<rect x="38" y="8" width="8" height="8" rx="2"/>
+		<rect x="48" y="8" width="8" height="8" rx="2"/>
+		<rect x="8" y="18" width="8" height="8" rx="2"/>
+		<rect x="18" y="18" width="8" height="8" rx="2"/>
+		<rect x="28" y="18" width="8" height="8" rx="2"/>
+		<rect x="38" y="18" width="8" height="8" rx="2"/>
+		<rect x="48" y="18" width="8" height="8" rx="2"/>
+		<rect x="8" y="28" width="8" height="8" rx="2"/>
+		<rect x="18" y="28" width="8" height="8" rx="2"/>
+		<rect x="28" y="28" width="8" height="8" rx="2"/>
+		<rect x="38" y="28" width="8" height="8" rx="2"/>
+		<rect x="48" y="28" width="8" height="8" rx="2"/>
+		<rect x="8" y="38" width="8" height="8" rx="2"/>
+		<rect x="18" y="38" width="8" height="8" rx="2"/>
+		<rect x="28" y="38" width="8" height="8" rx="2"/>
+		<rect x="38" y="38" width="8" height="8" rx="2"/>
+		<rect x="48" y="38" width="8" height="8" rx="2"/>
+		<rect x="8" y="48" width="8" height="8" rx="2"/>
+		<rect x="18" y="48" width="8" height="8" rx="2"/>
+		<rect x="28" y="48" width="8" height="8" rx="2"/>
+		<rect x="38" y="48" width="8" height="8" rx="2"/>
+		<rect x="48" y="48" width="8" height="8" rx="2"/>
+	</g>
+	<g fill="#d7ff4f">
+		<rect x="28" y="8" width="8" height="8" rx="2"/>
+		<rect x="18" y="18" width="8" height="8" rx="2"/>
+		<rect x="28" y="18" width="8" height="8" rx="2"/>
+		<rect x="38" y="18" width="8" height="8" rx="2"/>
+		<rect x="28" y="28" width="8" height="8" rx="2"/>
+		<rect x="48" y="28" width="8" height="8" rx="2"/>
+		<rect x="18" y="38" width="8" height="8" rx="2"/>
+		<rect x="38" y="38" width="8" height="8" rx="2"/>
+	</g>
+</svg>
