@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { appHref, stripBase } from '#lib/paths.js';
 	import Bluetooth from '@lucide/svelte/icons/bluetooth';
 	import LoaderCircle from '@lucide/svelte/icons/loader-circle';
 	import X from '@lucide/svelte/icons/x';
@@ -18,7 +19,7 @@
 		'/device': 'Device'
 	};
 
-	const section = $derived(sectionTitles[page.url.pathname] ?? 'Overview');
+	const section = $derived(sectionTitles[stripBase(page.url.pathname)] ?? 'Overview');
 	const busy = $derived(device.status === 'connecting' || device.status === 'restarting');
 
 	const statusLabel = $derived(
@@ -66,7 +67,7 @@
 	>
 		<div class="flex min-w-0 items-center gap-3">
 			<a
-				href="/"
+				href={appHref('/')}
 				class="flex items-center gap-2.5 lg:hidden"
 				aria-label="Fucy Studio home"
 			>
@@ -132,7 +133,7 @@
 			{/if}
 
 			{#if device.status === 'connected'}
-				<Button href="/device" variant="outline" size="sm" class="h-9">
+				<Button href={appHref('/device')} variant="outline" size="sm" class="h-9">
 					H3 Pro
 				</Button>
 			{:else if busy && !device.canReconnect}

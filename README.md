@@ -260,3 +260,24 @@ The full reverse-engineering map, including command payloads, family quirks, ser
 ## Notes
 
 This project is not affiliated with QCY. It was built by inspecting a publicly distributed APK for protocol interoperability. The seven built-in EQ curves come from the official H3 Pro panel (model 16759, firmware 1.0.0). The panel's `eqs` values are dB (not 0.1 dB): `SysEQSeted` stores them in `gainsFloat`, and the JL command-34 builder writes `round(gain × 100)` into the i16 field. The H3 Pro's documented −13 dB bass valley and −15 dB 8 kHz notch are preserved. Bundled market curves are original starting points, not QCY presets.
+
+
+## Deploy to GitHub Pages
+
+Pushes to `main` build and deploy the app through
+`.github/workflows/deploy.yml` to
+[`https://sanicxt.github.io/fucy/`](https://sanicxt.github.io/fucy/).
+
+The site is a static SPA. The workflow builds with `BASE_PATH=/fucy`, uploads
+the `build/` output, and deploys it to Pages. If the first run cannot enable
+Pages automatically, open **Settings → Pages → Build and deployment** and set
+**Source** to **GitHub Actions**.
+
+To reproduce the production build locally:
+
+```sh
+BASE_PATH=/fucy bun run build
+```
+
+The static output includes `build/404.html` for client-side route fallbacks and
+`build/.nojekyll` so GitHub Pages serves SvelteKit's `_app` directory.

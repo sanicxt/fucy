@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { appHref } from '#lib/paths.js';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
 	import AudioLines from '@lucide/svelte/icons/audio-lines';
@@ -108,25 +109,25 @@
 
 	const quickLinks = [
 		{
-			href: '/noise',
+			href: appHref('/noise'),
 			label: 'Noise control',
 			detail: 'Scenes, transparency, normal',
 			icon: Waves
 		},
 		{
-			href: '/equalizer',
+			href: appHref('/equalizer'),
 			label: 'Equalizer',
 			detail: 'Ten bands, one local curve',
 			icon: SlidersHorizontal
 		},
 		{
-			href: '/market',
+			href: appHref('/market'),
 			label: 'Sound market',
 			detail: 'H3 Pro starting points',
 			icon: Store
 		},
 		{
-			href: '/device',
+			href: appHref('/device'),
 			label: 'Device',
 			detail: 'Battery, LDAC, multipoint',
 			icon: Headphones
@@ -160,11 +161,11 @@
 			title="Your H3 Pro, in the studio."
 			description="A single view of battery, noise, wireless state, and the curve shaping the H3 Pro right now."
 		>
-			<Button href="/equalizer" size="sm">
+			<Button href={appHref('/equalizer')} size="sm">
 				<SlidersHorizontal data-icon="inline-start" />
 				Open equalizer
 			</Button>
-			<Button href="/noise" variant="ghost" size="sm">Noise control</Button>
+			<Button href={appHref('/noise')} variant="ghost" size="sm">Noise control</Button>
 		</PageHeading>
 
 		{#if !device.connected}
@@ -281,7 +282,7 @@
 					>
 						<span>Refreshes every 30 seconds while connected</span>
 						<a
-							href="/device"
+							href={appHref('/device')}
 							class="inline-flex items-center gap-1.5 text-bone transition-colors duration-200 hover:text-signal"
 						>
 							Device details
@@ -344,7 +345,7 @@
 									</p>
 								</div>
 								<a
-									href="/noise"
+									href={appHref('/noise')}
 									class="shrink-0 text-[10px] font-medium text-signal transition-colors duration-200 hover:text-bone"
 								>
 									Choose
@@ -358,7 +359,7 @@
 							</p>
 							<p class="mt-1 text-[10px] leading-relaxed text-muted-warm text-pretty">
 								Noise scenes are available in ANC mode.
-								<a href="/noise" class="font-medium text-signal hover:text-bone">Switch to ANC</a>
+								<a href={appHref('/noise')} class="font-medium text-signal hover:text-bone">Switch to ANC</a>
 							</p>
 						</div>
 					{/if}
@@ -449,7 +450,7 @@
 						Master {device.masterGain > 0 ? '+' : ''}{device.masterGain.toFixed(1)} dB
 					</span>
 					<a
-						href="/equalizer"
+						href={appHref('/equalizer')}
 						class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-signal transition-colors duration-200 hover:text-bone"
 					>
 						Shape the curve

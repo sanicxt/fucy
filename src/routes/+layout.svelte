@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
+	import { stripBase } from '#lib/paths.js';
 	import ConnectDialog from '#lib/components/connect-dialog.svelte';
 	import ConnectGate from '#lib/components/connect-gate.svelte';
 	import DeviceStatusBanner from '#lib/components/device-status-banner.svelte';
@@ -21,14 +22,14 @@
 		'/device': 'Device'
 	};
 
-	const section = $derived(sectionTitles[page.url.pathname] ?? 'Sound Studio');
+	const section = $derived(sectionTitles[stripBase(page.url.pathname)] ?? 'Sound Studio');
 
 	/**
 	 * Keep the page context visible while the retained H3 Pro is restarting or
 	 * reconnecting. The gate is only for a session with no device to return to.
 	 */
 	const showGate = $derived(
-		page.url.pathname !== '/' &&
+		stripBase(page.url.pathname) !== '/' &&
 			!device.connected &&
 			!ui.demoPreview &&
 			!device.canReconnect &&
@@ -66,7 +67,7 @@
 				<DeviceStatusBanner />
 			</div>
 
-			{#key page.url.pathname}
+			{#key stripBase(page.url.pathname)}
 				{#if showGate}
 					<ConnectGate {section} />
 				{:else}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { appHref } from '#lib/paths.js';
 	import type { LucideIcon } from '@lucide/svelte';
 	import AudioWaveform from '@lucide/svelte/icons/audio-waveform';
 	import Check from '@lucide/svelte/icons/check';
@@ -315,7 +316,7 @@
 				Connect the QCY H3 Pro to use scene-based ANC, transparency, and normal modes. The rest of
 				the studio remains H3 Pro-focused as well.
 			</p>
-			<Button href="/device" variant="outline" class="mt-4">
+			<Button href={appHref('/device')} variant="outline" class="mt-4">
 				<Headphones data-icon="inline-start" />
 				H3 Pro device
 			</Button>

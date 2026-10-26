@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { appHref, stripBase } from '#lib/paths.js';
 	import type { LucideIcon } from '@lucide/svelte';
 	import AudioLines from '@lucide/svelte/icons/audio-lines';
 	import Bluetooth from '@lucide/svelte/icons/bluetooth';
@@ -55,7 +56,7 @@
 	const busy = $derived(device.status === 'connecting' || device.status === 'restarting');
 
 	function isActive(href: string): boolean {
-		const pathname = page.url.pathname;
+		const pathname = stripBase(page.url.pathname);
 		return href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 	}
 
@@ -84,7 +85,7 @@
 >
 	<div class="flex h-[76px] shrink-0 items-center justify-center">
 		<a
-			href="/"
+			href={appHref('/')}
 			class="group relative flex size-11 items-center justify-center rounded-[15px] border border-hairline bg-surface text-signal transition-colors duration-200 hover:border-signal/35 hover:bg-surface-raised"
 			aria-label="Fucy Studio home"
 		>
@@ -102,7 +103,7 @@
 		{#each navItems as item (item.href)}
 			{@const active = isActive(item.href)}
 			<a
-				href={item.href}
+				href={appHref(item.href)}
 				aria-current={active ? 'page' : undefined}
 				aria-label={item.label}
 				class={cn(
@@ -165,7 +166,7 @@
 			</p>
 		{:else if device.connected}
 			<a
-				href="/device"
+				href={appHref('/device')}
 				class="group relative flex size-11 flex-col items-center justify-center gap-1 rounded-[15px] border border-hairline bg-surface transition-colors duration-200 hover:bg-surface-raised"
 				aria-label={`Connected to QCY H3 Pro, ${device.battery.left ?? 'unknown'} percent battery`}
 			>
@@ -229,7 +230,7 @@
 		{#each navItems as item (item.href)}
 			{@const active = isActive(item.href)}
 			<a
-				href={item.href}
+				href={appHref(item.href)}
 				aria-current={active ? 'page' : undefined}
 				class={cn(
 					'relative flex flex-col items-center gap-1 rounded-xl px-1 py-2 text-[10px] font-medium transition-colors duration-200',
